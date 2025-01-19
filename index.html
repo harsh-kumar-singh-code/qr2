@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>html, body{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    
+    .container{
+        display: flex;
+        background-color: cyan;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .input{
+        background-color: white;
+        text-align: center;
+        align-items: center;
+        padding: 50px 100px;
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+    
+    p{
+        font-size: 200%;
+    }
+    button{
+        background-color: blue;
+        padding: 10px 100px 10px 100px;
+        border-radius: 20px;
+    
+    }
+    input{
+        height: 20px;
+        width: 200px;
+        padding: 10px 50px;
+        text-align: left;
+        border-radius: 20px;
+    
+    }
+    button:hover{
+        background-color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <p>Qr Code Generate</p>
+            <input type="text" placeholder="Enter Url " id="inputtext"><br><br>
+            <button onclick="generate()">Generate QR</button>
+            <br><br>
+        </div>
+        <br><br>
+
+        <div class="qr">
+            <div class="img">
+                <img src="" alt="" id="imgqr"><br><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        let inputtext=document.getElementById("inputtext");
+        let img=document.getElementById("imgqr");
+
+        function generate(){
+            // imgqr.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+ inputtext.value
+            imgqr.src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputtext.value}`
+        }
+    </script>
+</body>
+</html>
